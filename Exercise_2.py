@@ -1,4 +1,15 @@
+"""
+# Time Complexity :
+- push: O(1)
+- pop: O(1)
 
+# Space Complexity :
+- O(n), where n is the number of elements in the stack
+
+# Did this code successfully run on Leetcode : Not applicable (custom implementation)
+
+# Any problem you faced while coding this : No
+"""
 class Node:
     def __init__(self, data):
        self.data = data
@@ -6,10 +17,19 @@ class Node:
  
 class Stack:
     def __init__(self):
+        self.top = None
         
     def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
         
     def pop(self):
+        if self.top is None:
+            return None
+        popped = self.top.data
+        self.top = self.top.next
+        return popped
         
 a_stack = Stack()
 while True:
